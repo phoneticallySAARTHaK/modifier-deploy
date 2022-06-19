@@ -5,7 +5,7 @@ import markup from '../markup/OgImage'
 const { performance } = require('perf_hooks')
 
 const index = (_req, res) => {
-  console.log(_req)
+  console.log('index or favicon req')
   res.send('Homepage').end()
 }
 
@@ -79,7 +79,7 @@ const createModifier = (model) => async (req, res) => {
 
     res.type('.html')
     const url = `https://urlmod.herokuapp.com/um/${modifier.modifier_name}`
-    let result = `<div style="width: 95vw; height: 95vh; display: flex; justify-content: center; align-items: center;"><p>Your modified URL is <a href="${url}">${url}, redirecting to ${modifier.redirect_url}</a>`
+    let result = `<div style="width: 95vw; height: 95vh; display: flex; justify-content: center; align-items: center;"><p>Your modified URL is <a href="${url}">${url}</a>, redirecting to <a href="${modifier.redirect_url}">${modifier.redirect_url}</a>`
     res.send(result)
   } catch (e) {
     console.log(e)
@@ -139,7 +139,7 @@ const redirect = (model) => async (req, res) => {
     }
   } catch (e) {
     console.log(e)
-    res.redirect('/')
+    res.send(error.ServerError)
   }
 
   let endTime = performance.now()
