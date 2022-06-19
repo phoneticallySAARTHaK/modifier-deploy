@@ -76,7 +76,7 @@ const createModifier = (model) => async (req, res) => {
     }
 
     res.type('.html')
-    const url = `ht`
+    const url = `https://urlmod.herokuapp.com/um/${modifier_name}`
     let result = `<div style="width: 95vw; height: 95vh; display: flex; justify-contents: center; align-items: center;"><p>Your modified URL is <a href="${url}">${url}</a>`
     res.send(result)
   } catch (e) {
