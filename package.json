@@ -1,6 +1,9 @@
 {
   "name": "modifier",
   "version": "1.0.0",
+  "engines": {
+	  "node": "18.3.0"
+  },
   "description": "url modifier",
   "repository": "https://github.com/hxyro/modifier.git",
   "private": true,
