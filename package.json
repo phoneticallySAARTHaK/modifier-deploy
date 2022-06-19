@@ -2,20 +2,21 @@
   "name": "modifier",
   "version": "1.0.0",
   "engines": {
-	  "node": "18.3.0"
+    "node": "18.3.0"
   },
   "description": "url modifier",
   "repository": "https://github.com/hxyro/modifier.git",
   "private": true,
   "scripts": {
     "dev": "nodemon --exec babel-node \"src/index.js\"",
-    "build": "babel src -d build",
+    "build": "npx babel src -d build",
     "start": "node build/index.js",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint \"src/**/*.js\" --quiet"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.2",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",
     "@babel/node": "^7.17.10",
     "@babel/preset-env": "^7.18.2",
