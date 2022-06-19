@@ -161,14 +161,14 @@ var getUser = function getUser(model) {
 var createModifier = function createModifier(model) {
   return /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(req, res) {
-      var _req$params, user_name, modifier_name, _req$body, redirect_url, asset_url, title, description, modifier, url, result;
+      var user_name, _req$body, modifier_name, redirect_url, asset_url, title, description, modifier, url, result;
 
       return _regeneratorRuntime().wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              _req$params = req.params, user_name = _req$params.user_name, modifier_name = _req$params.modifier_name;
-              _req$body = req.body, redirect_url = _req$body.redirect_url, asset_url = _req$body.asset_url, title = _req$body.title, description = _req$body.description;
+              user_name = req.params.user_name;
+              _req$body = req.body, modifier_name = _req$body.modifier_name, redirect_url = _req$body.redirect_url, asset_url = _req$body.asset_url, title = _req$body.title, description = _req$body.description;
               _context4.prev = 2;
               _context4.next = 5;
               return model.modifier.create({
@@ -228,13 +228,13 @@ var createModifier = function createModifier(model) {
 var deleteModifier = function deleteModifier(model) {
   return /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(req, res) {
-      var _req$params2, user_name, modifier_name, modifier;
+      var _req$params, user_name, modifier_name, modifier;
 
       return _regeneratorRuntime().wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
-              _req$params2 = req.params, user_name = _req$params2.user_name, modifier_name = _req$params2.modifier_name;
+              _req$params = req.params, user_name = _req$params.user_name, modifier_name = _req$params.modifier_name;
               _context5.prev = 1;
               _context5.next = 4;
               return model.modifier.findOneAndDelete({
@@ -281,7 +281,7 @@ var deleteModifier = function deleteModifier(model) {
 var redirect = function redirect(model) {
   return /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(req, res) {
-      var startTime, _req$params3, user_name, modifier_name, modifier, redirect_url, asset_url, title, description, endTime;
+      var startTime, _req$params2, user_name, modifier_name, modifier, redirect_url, asset_url, title, description, endTime;
 
       return _regeneratorRuntime().wrap(function _callee6$(_context6) {
         while (1) {
@@ -289,7 +289,7 @@ var redirect = function redirect(model) {
             case 0:
               startTime = performance.now();
               _context6.prev = 1;
-              _req$params3 = req.params, user_name = _req$params3.user_name, modifier_name = _req$params3.modifier_name;
+              _req$params2 = req.params, user_name = _req$params2.user_name, modifier_name = _req$params2.modifier_name;
               _context6.next = 5;
               return model.modifier.findOne({
                 user_name: user_name,

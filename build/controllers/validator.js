@@ -124,8 +124,7 @@ var userInDB = function userInDB(model) {
 var modifierInDB = function modifierInDB(model) {
   return /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(req, res, next) {
-      var msg, _req$params, user_name, modifier_name, modifier;
-
+      var msg, user_name, modifier_name, modifier;
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -142,23 +141,24 @@ var modifierInDB = function modifierInDB(model) {
               }));
 
             case 3:
-              _req$params = req.params, user_name = _req$params.user_name, modifier_name = _req$params.modifier_name;
-              _context2.prev = 4;
-              _context2.next = 7;
+              user_name = req.params.user_name;
+              modifier_name = req.body.modifier_name;
+              _context2.prev = 5;
+              _context2.next = 8;
               return model.user.findOne({
                 name: user_name
               }).orFail(new Error(_utils.error.name, {
                 message: user_name
               }));
 
-            case 7:
-              _context2.next = 9;
+            case 8:
+              _context2.next = 10;
               return model.modifier.findOne({
                 modifier_name: modifier_name,
                 user_name: user_name
               }).exec();
 
-            case 9:
+            case 10:
               modifier = _context2.sent;
 
               if (modifier) {
@@ -167,12 +167,12 @@ var modifierInDB = function modifierInDB(model) {
                 next();
               }
 
-              _context2.next = 18;
+              _context2.next = 19;
               break;
 
-            case 13:
-              _context2.prev = 13;
-              _context2.t0 = _context2["catch"](4);
+            case 14:
+              _context2.prev = 14;
+              _context2.t0 = _context2["catch"](5);
 
               if (_context2.t0.name === _utils.error.name) {
                 res.send(_utils.error.DoesNotExists('user', _context2.t0.message));
@@ -182,12 +182,12 @@ var modifierInDB = function modifierInDB(model) {
               console.log(_context2.t0);
               res.json(_utils.error.ServerError).end();
 
-            case 18:
+            case 19:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[4, 13]]);
+      }, _callee2, null, [[5, 14]]);
     }));
 
     return function (_x4, _x5, _x6) {

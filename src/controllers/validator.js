@@ -57,7 +57,7 @@ const modifierInDB = (model) => async (req, res, next) => {
     return res.status(400).json({ errors: msg.array() })
   }
   const user_name = req.params.user_name
-  const modifier_name = req.body.name
+  const modifier_name = req.body.modifier_name
   try {
     await model.user
       .findOne({ name: user_name })

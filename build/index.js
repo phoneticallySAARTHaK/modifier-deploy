@@ -24,7 +24,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 _dotenv["default"].config();
 
-var PORT = process.env.PORT | 3000;
+var PORT = process.env.PORT || 3000;
 var MONGO_URI = process.env.MONGO_URI;
 var app = (0, _express["default"])();
 app.disable('x-powered-by');

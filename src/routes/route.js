@@ -35,14 +35,14 @@ router.get('/u/:user_name', controller.getUser(model))
 router.post(
   '/u/:user_name/m/',
   validator.trimmed([
-    'name',
+    'modifier_name',
     'redirect_url',
     'asset_url',
     'title',
     'description',
   ]),
   validator.required([
-    'name',
+    'modifier_name',
     'redirect_url',
     'asset_url',
     'title',
