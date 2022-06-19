@@ -74,7 +74,11 @@ const createModifier = (model) => async (req, res) => {
         }
       )
     }
-    res.json(modifier).end()
+
+    res.type('.html')
+    const url = `ht`
+    let result = `<div style="width: 95vw; height: 95vh; display: flex; justify-contents: center; align-items: center;"><p>Your modified URL is <a href="${url}">${url}</a>`
+    res.send(result)
   } catch (e) {
     console.log(e)
     res.json(error.ServerError).end()
