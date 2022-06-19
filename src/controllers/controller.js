@@ -5,7 +5,7 @@ import markup from '../markup/OgImage'
 const { performance } = require('perf_hooks')
 
 const index = (_req, res) => {
-	console.log(_req)
+  console.log(_req)
   res.send('Homepage').end()
 }
 
@@ -54,8 +54,9 @@ const getUser = (model) => async (req, res) => {
 }
 
 const createModifier = (model) => async (req, res) => {
-  const { user_name, modifier_name } = req.params
-  const { redirect_url, asset_url, title, description } = req.body
+  const user_name = req.params.user_name
+  const { modifier_name, redirect_url, asset_url, title, description } =
+    req.body
   try {
     const modifier = await model.modifier.create({
       user_name,

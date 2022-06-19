@@ -56,7 +56,8 @@ const modifierInDB = (model) => async (req, res, next) => {
   if (!msg.isEmpty()) {
     return res.status(400).json({ errors: msg.array() })
   }
-  const { user_name, modifier_name } = req.params
+  const user_name = req.params.user_name
+  const modifier_name = req.body.name
   try {
     await model.user
       .findOne({ name: user_name })
