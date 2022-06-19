@@ -288,43 +288,48 @@ var redirect = function redirect(model) {
           switch (_context6.prev = _context6.next) {
             case 0:
               startTime = performance.now();
-              _context6.prev = 1;
+              console.log(req.get('user-agent'));
+              _context6.prev = 2;
               _req$params2 = req.params, user_name = _req$params2.user_name, modifier_name = _req$params2.modifier_name;
-              _context6.next = 5;
+              _context6.next = 6;
               return model.modifier.findOne({
                 user_name: user_name,
                 modifier_name: modifier_name
               }).orFail().exec();
 
-            case 5:
+            case 6:
               modifier = _context6.sent;
 
               if ((0, _isbot["default"])(req.get('user-agent'))) {
+                console.log("BOTTTT");
                 redirect_url = modifier.redirect_url, asset_url = modifier.asset_url, title = modifier.title, description = modifier.description;
+                res.status(200);
+                res.type('html');
                 res.send((0, _OgImage["default"])(decodeURI(redirect_url), decodeURI(asset_url), title, description));
               } else {
-                res.redirect(decodeURI(modifier.redirect_url));
+                console.log("NOT BOT");
+                res.redirect(decodeURI(301, modifier.redirect_url));
               }
 
-              _context6.next = 13;
+              _context6.next = 14;
               break;
 
-            case 9:
-              _context6.prev = 9;
-              _context6.t0 = _context6["catch"](1);
+            case 10:
+              _context6.prev = 10;
+              _context6.t0 = _context6["catch"](2);
               console.log(_context6.t0);
               res.redirect('/');
 
-            case 13:
+            case 14:
               endTime = performance.now();
               console.log("Call to redirect took ".concat(endTime - startTime, " milliseconds"));
 
-            case 15:
+            case 16:
             case "end":
               return _context6.stop();
           }
         }
-      }, _callee6, null, [[1, 9]]);
+      }, _callee6, null, [[2, 10]]);
     }));
 
     return function (_x11, _x12) {
