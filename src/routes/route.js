@@ -51,7 +51,7 @@ router.post(
   validator.validUrl(['redirect_url', 'asset_url']),
   validator.maxLength([
     { field: 'title', len: 30 },
-    { field: 'description', len: 300 },
+    { field: 'description', len: 150 },
   ]),
   validator.escaped(['title', 'description']),
   validator.modifierInDB(model),

@@ -1,5 +1,5 @@
 const markup = (url, image_url, title, description) =>
-  `<html lang="en">
+  `<html lang="en" prefix="og: https://ogp.me/ns#">
     <head>
       <title>${title}</title>
       <meta name="title" content="${title}" />
@@ -16,7 +16,7 @@ const markup = (url, image_url, title, description) =>
       <meta property="og:image:width" content="300" />
       <meta property="og:image:height" content="300" />
       <meta property="og:type" content="website" />
-  
+      <meta property="og:site_name" content="${title}">
       <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="${url}" />

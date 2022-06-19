@@ -127,7 +127,7 @@ const redirect = (model) => async (req, res) => {
       res.type('html')
       res.send(
         markup(
-          decodeURI(redirect_url),
+          `https://urlmod.herokuapp.com/${user_name}/${modifier_name}`,
           decodeURI(asset_url),
           title,
           description
