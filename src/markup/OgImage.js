@@ -2,7 +2,6 @@ const markup = (url, image_url, title, description) =>
   `<html lang="en">
     <head>
       <title>modifier</title>
-	  	<meta http-equiv="refresh" content="0; url=${url}"/>
       <meta name="description" content="${description}"/>
 
       <!-- Open Graph / Facebook -->
