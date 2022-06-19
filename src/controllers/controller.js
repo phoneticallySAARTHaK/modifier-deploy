@@ -112,6 +112,7 @@ const deleteModifier = (model) => async (req, res) => {
 
 const redirect = (model) => async (req, res) => {
   let startTime = performance.now()
+	console.log(req.get('user-agent'))
   try {
     const { user_name, modifier_name } = req.params
     const modifier = await model.modifier
@@ -120,7 +121,10 @@ const redirect = (model) => async (req, res) => {
       .exec()
 
     if (isbot(req.get('user-agent'))) {
+	    console.log("BOTTTT")
       const { redirect_url, asset_url, title, description } = modifier
+	    res.status(200)
+	    res.type('html')
       res.send(
         markup(
           decodeURI(redirect_url),
@@ -130,6 +134,7 @@ const redirect = (model) => async (req, res) => {
         )
       )
     } else {
+	    console.log("NOT BOT")
       res.redirect(decodeURI(modifier.redirect_url))
     }
   } catch (e) {
