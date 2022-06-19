@@ -1,7 +1,8 @@
 const markup = (url, image_url, title, description) =>
   `<html lang="en">
     <head>
-      <title>modifier</title>
+      <title>${title}</title>
+      <meta name="title" content="${title}" />
       <meta name="description" content="${description}"/>
 
       <!-- Open Graph / Facebook -->
@@ -9,10 +10,12 @@ const markup = (url, image_url, title, description) =>
       <meta property="og:url" content="${url}" />
       <meta property="og:title" content="${title}" />
       <meta property="og:description" content="${description}"/>
-      <meta property="og:image" content="${image_url}"/>
+      <meta property="og:image" itemprop="image" content="${image_url}"/>
+      <meta property="og:image:secure_url" itemprop="image" content="${image_url}"/>
       <meta property="og:image:alt" content="${description}"/>
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="628" />
+      <meta property="og:image:width" content="300" />
+      <meta property="og:image:height" content="300" />
+      <meta property="og:type" content="website" />
   
       <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image" />
