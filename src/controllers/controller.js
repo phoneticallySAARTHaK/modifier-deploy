@@ -5,6 +5,7 @@ import markup from '../markup/OgImage'
 const { performance } = require('perf_hooks')
 
 const index = (_req, res) => {
+	console.log(_req)
   res.send('Homepage').end()
 }
 
