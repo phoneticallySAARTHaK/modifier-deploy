@@ -25,6 +25,7 @@ var _require = require('perf_hooks'),
     performance = _require.performance;
 
 var index = function index(_req, res) {
+  console.log(_req);
   res.send('Homepage').end();
 };
 

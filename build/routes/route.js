@@ -15,7 +15,8 @@ var router = (0, _express.Router)(); //TODO: add validator
 // Homepage
 // -> curl -X GET http://localhost:3000/
 
-router.get('/', _controllers.controller.index); // Create New User
+router.get('/', _controllers.controller.index);
+router.get('/favicon.ico', _controllers.controller.index); // Create New User
 // -> curl -X POST http://localhost:3000/alter -d 'user_name=hxyro'
 
 router.post('/alter', _controllers.validator.trimmed(['user_name']), _controllers.validator.required(['user_name']), _controllers.validator.validName(['user_name']), _controllers.validator.escaped(['user_name']), _controllers.validator.userInDB(_models.model), _controllers.controller.createUser(_models.model)); // Delete User
