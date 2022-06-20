@@ -135,7 +135,7 @@ const redirect = (model) => async (req, res) => {
       )
     } else {
       console.log('NOT BOT')
-      res.redirect(301, decodeURI(modifier.redirect_url))
+      res.redirect(decodeURI(modifier.redirect_url))
     }
   } catch (e) {
     console.log(e)
