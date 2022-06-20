@@ -10,11 +10,12 @@ const markup = (url, image_url, title, description) =>
       <meta property="og:url" content="${url}" />
       <meta property="og:title" content="${title}" />
       <meta property="og:description" content="${description}"/>
-      <meta property="og:image" itemprop="image" content="${image_url}"/>
-      <meta property="og:image:secure_url" itemprop="image" content="${image_url}"/>
-      <meta property="og:image:alt" content="${description}"/>
+      <meta property="og:image" content="${image_url}"/>
+      <meta property="og:image:secure_url" content="${image_url}"/>
       <meta property="og:image:width" content="300" />
       <meta property="og:image:height" content="300" />
+      <meta property="og:image:alt" content="${description}"/>
+      
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="${title}">
       <!-- Twitter -->
