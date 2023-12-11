@@ -10,7 +10,7 @@ const MONGO_URI = process.env.MONGO_URI
 const app = express()
 app.disable('x-powered-by')
 app.use(urlencoded({ extended: true }))
-app.use('/', router)
+app.use('/api', router)
 const start = async () => {
   await db.connect(MONGO_URI).then(() => {
     console.log('connected')
