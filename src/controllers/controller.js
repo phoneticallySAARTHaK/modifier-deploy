@@ -78,7 +78,7 @@ const createModifier = (model) => async (req, res) => {
     }
 
     res.type('.html')
-    const url = `https://urlmod.herokuapp.com/um/${modifier.modifier_name}`
+    const url = `${process.env.ORIGIN}/um/${modifier.modifier_name}`
     let result = `<div style="width: 95vw; height: 95vh; display: flex; justify-content: center; align-items: center;"><p>Your modified URL is <a href="${url}">${url}</a>, redirecting to <a href="${modifier.redirect_url}">${modifier.redirect_url}</a>`
     res.send(result)
   } catch (e) {
@@ -122,12 +122,12 @@ const redirect = (model) => async (req, res) => {
 
     if (isbot(req.get('user-agent'))) {
       console.log('BOTTTT')
-      const { redirect_url, asset_url, title, description } = modifier
+      const { asset_url, title, description } = modifier
       res.status(200)
       res.type('html')
       res.send(
         markup(
-          `https://urlmod.herokuapp.com/${user_name}/${modifier_name}`,
+          `${process.env.ORIGIN}/${user_name}/${modifier_name}`,
           decodeURI(asset_url),
           title,
           description

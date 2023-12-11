@@ -66,7 +66,7 @@ const modifierInDB = (model) => async (req, res, next) => {
       .findOne({ modifier_name, user_name })
       .exec()
     if (modifier) {
-      res.json(error.AlreadyExists('modifier', modifier_name)).end()
+      res.json(error.AlreadyExist('modifier', modifier_name)).end()
     } else {
       next()
     }
